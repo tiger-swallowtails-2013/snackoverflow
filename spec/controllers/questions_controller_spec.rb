@@ -12,5 +12,12 @@ describe QuestionsController do
 			get :index
 			expect(response.body).to match("number")
 		end
+
+		it "should have links to view each question"
+		it "should include a link to create a new user" do 
+			get :index
+			save_and_open_page
+			expect(page).to have_link("Ask a question")
+		end 
 	end
 end
