@@ -14,8 +14,8 @@ describe Question do
 		@question.should_not be_persisted
 	end 
 
-	pending it "should belong to the user who created it" do 
-		@user = User.create(name: "sunny", email: "s@dbc.com")
+	it "should belong to the user who created it" do 
+		@user = User.create(fb_username: "sunny", email: "s@dbc.com")
 		@question = @user.questions.create(valid_params)
 		expect(@question.user).to eq(@user)
 	end 
