@@ -1,28 +1,53 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Using Ruby 1.9.3
+Using Rails 4.0
 
-Things you may want to cover:
+== MVP
+-- A user can log in with oAuth
+-- A logged-in user can ask questions and post answers
+-- A guest can view all questions and answers
 
-* Ruby version
+==Current status:
+= Questions
+* model created
+* model tested with associations & validation for user
+* all routes created (edit, update, delete to be implemented in future)
+* controller includes methods for new, create, index, show
+-- create route should include validation once oAuth is implemented
+* views currently only include index
 
-* System dependencies
+= Users
+* current landing page is users#index, which we don't want to keep
+* model created and tested with associations and validations
+* view for index is simply a Hello World placeholder
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+= Sessions
+* basic oAuth framework has been built but not tested
+* I'm sure there are still gaps, though not sure where they are.
+-- probably the actual route to the facebook app
+-- but the dotenv file does have our facebook dillyos
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+==Next steps:
+= Questions
+* views for "new" and "show", maybe confirm on "create"
+-- "show" view should show question and its answers
+-- should be able to add answer through question "show" page
+
+= Answers
+* all
+--(intent is answers will belong to user and question)
+--(answers should not have views themselves)
+--(answers will appear on the answer.question show page)
+--(only users who have logged in can answer questions)
+
+= Users
+* before log in, guests should be directed to log in or view questions#index
+* on log in, home page should be "show" for that user
+* "show" view should include a link to create new question
+* "show" view should link to questions#index
+
+= Layout
+* we want a login/logout button at the layout level
+-- should change based on session
